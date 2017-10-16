@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+     <!-- middle contents -->
+        <div class="container center">
+          <div class="row">
+              {% for items in series %}
+            <div class="col-lg-4">
+                <h2 class="center">{{ items.name }}</h2>
+                <p class="center">
+                  {{ items.description }}
+                </p>
+            <a class="btn btn-default" role="button" href="{% url 'tutorials:tutorial_series_detail' items.slug %}"></a>
+
+                <p>
+                    <a class="btn btn-default" href="#" role="button">
+                        {% if items.archived %}
+                         This Series has been archived
+                        {% else %}
+                        This Series is currently running
+                        {% endif %}
+                    </a>
+
+
+                </p>
+            </div>
+              {% endfor %}
+
+         </div>
+
+         </div>
+        <br/>
+        <!-- middle contents -->
+
+
+        <!-- footer -->
+
+
+
+
+
+
+{% endblock %}

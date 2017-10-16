@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container center">
+    <div class="jumbotron">
+        {{series.name}}
+    </div>
+    <div class="row">
+<h1 class="jumbotron col-md-6">
+    {{ series.description }}
+</h1>
+        <h3>List of lessons</h3>
+        <ul>
+            {% for lessons in lesson %}
+                <li class= "list-group-item col-md-6">
+                    <span class="badge">{{lessons.length}}</span>
+                    <a href="{%url 'tutorials:lesson_detail' series.slug lessons.slug%}">{{ lessons.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+</div>
+</div>
+{% endblock %}
